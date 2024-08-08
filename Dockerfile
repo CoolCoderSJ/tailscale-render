@@ -25,4 +25,6 @@ COPY run-tailscale.sh /render/
 COPY install-tailscale.sh /tmp
 RUN /tmp/install-tailscale.sh && rm -r /tmp/*
 
+EXPOSE 80
+
 CMD ./run-tailscale.sh
