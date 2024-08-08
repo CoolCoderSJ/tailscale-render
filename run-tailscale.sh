@@ -4,7 +4,7 @@
 PID=$!
 
 /render/tailscale up --hostname="${RENDER_SERVICE_NAME}" --advertise-exit-node &
-/render/tailscale web --listen 80 &
+/render/tailscale web --listen 0.0.0.0:$PORT &
 
 export ALL_PROXY=socks5://localhost:1055/
 tailscale_ip=$(/render/tailscale ip)
