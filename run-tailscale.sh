@@ -3,6 +3,8 @@
 /render/tailscaled --tun=userspace-networking --socks5-server=localhost:1055 --outbound-http-proxy-listen=localhost:1055 &
 PID=$!
 
+/render/tailscale web --listen 80 &
+
 until /render/tailscale up --hostname="${RENDER_SERVICE_NAME}" --advertise-exit-node; do
   sleep 0.1
 done
